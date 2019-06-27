@@ -109,7 +109,7 @@ namespace Tanks
     private TanksNetworkManager m_NetManager;
 
     //Cached reference to singleton InGameLeaderboardModal
-    protected InGameLeaderboardModal m_Leaderboard;
+    //protected InGameLeaderboardModal m_Leaderboard;
 
     //Cached reference to singleton AnnouncerModal
     protected AnnouncerModal m_Announcer;
@@ -524,24 +524,24 @@ namespace Tanks
     }
 
     // Convenience function for showing the leaderboard
-    public void ShowLeaderboard(TankManager tank, string heading)
-    {
-      if (tank != null && !tank.removedTank && tank.hasAuthority && !m_GameIsFinished)
-      {
-        LazyLoadLeaderboard();
-        m_Leaderboard.Show(heading);
-      }
-    }
+    //public void ShowLeaderboard(TankManager tank, string heading)
+    //{
+    //  if (tank != null && !tank.removedTank && tank.hasAuthority && !m_GameIsFinished)
+    //  {
+    //    LazyLoadLeaderboard();
+    //    m_Leaderboard.Show(heading);
+    //  }
+    //}
 
     // Convenience function for hiding the leaderboard
-    public void ClearLeaderboard(TankManager tank)
-    {
-      if (!tank.removedTank && tank.hasAuthority && !m_GameIsFinished)
-      {
-        LazyLoadLeaderboard();
-        m_Leaderboard.Hide();
-      }
-    }
+    //public void ClearLeaderboard(TankManager tank)
+    //{
+    //  if (!tank.removedTank && tank.hasAuthority && !m_GameIsFinished)
+    //  {
+    //    LazyLoadLeaderboard();
+    //    m_Leaderboard.Hide();
+    //  }
+    //}
 
     // Enables the tank control
     public void EnableTankControl()
@@ -608,14 +608,14 @@ namespace Tanks
     }
 
     // Lazy loads the leaderboard
-    protected void LazyLoadLeaderboard()
-    {
-      if (m_Leaderboard != null)
-      {
-        return;
-      }
-      m_Leaderboard = InGameLeaderboardModal.s_Instance;
-    }
+    //protected void LazyLoadLeaderboard()
+    //{
+    //  if (m_Leaderboard != null)
+    //  {
+    //    return;
+    //  }
+    //  m_Leaderboard = InGameLeaderboardModal.s_Instance;
+    //}
 
     // Lazy loads the announcer
     protected void LazyLoadAnnouncer()

@@ -165,34 +165,34 @@ namespace Tanks.Rules
 		/// Returns elements for constructing the leaderboard
 		/// </summary>
 		/// <returns>The leaderboard elements.</returns>
-		public virtual List<LeaderboardElement> GetLeaderboardElements()
-		{
-			List<LeaderboardElement> leaderboardElements = new List<LeaderboardElement>();
+		//public virtual List<LeaderboardElement> GetLeaderboardElements()
+		//{
+		//	List<LeaderboardElement> leaderboardElements = new List<LeaderboardElement>();
 
-			List<TankManager> matchTanks = GameManager.s_Tanks;
-			int tankCount = matchTanks.Count;
+		//	List<TankManager> matchTanks = GameManager.s_Tanks;
+		//	int tankCount = matchTanks.Count;
 			
-			for (int i = 0; i < tankCount; ++i)
-			{
-				TankManager currentTank = matchTanks[i];
-				LeaderboardElement leaderboardElement = new LeaderboardElement(currentTank.playerName, currentTank.playerColor, currentTank.score);
-				leaderboardElements.Add(leaderboardElement);
-			}
+		//	for (int i = 0; i < tankCount; ++i)
+		//	{
+		//		TankManager currentTank = matchTanks[i];
+		//		LeaderboardElement leaderboardElement = new LeaderboardElement(currentTank.playerName, currentTank.playerColor, currentTank.score);
+		//		leaderboardElements.Add(leaderboardElement);
+		//	}
 
-			leaderboardElements.Sort(LeaderboardSort);
-			return leaderboardElements;
-		}
+		//	leaderboardElements.Sort(LeaderboardSort);
+		//	return leaderboardElements;
+		//}
 
 		/// <summary>
 		/// Used for sorting the leaderboard
 		/// </summary>
 		/// <returns>The sort.</returns>
-		/// <param name="player1">Player1.</param>
-		/// <param name="player2">Player2.</param>
-		protected int LeaderboardSort(LeaderboardElement player1, LeaderboardElement player2)
-		{
-			return player2.score - player1.score;
-		}
+		///// <param name="player1">Player1.</param>
+		///// <param name="player2">Player2.</param>
+		//protected int LeaderboardSort(LeaderboardElement player1, LeaderboardElement player2)
+		//{
+		//	return player2.score - player1.score;
+		//}
 
 		/// <summary>
 		/// Gets the color provider.

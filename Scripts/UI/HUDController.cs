@@ -511,21 +511,5 @@ namespace Tanks.UI
 		}
 
 
-		/// <summary>
-		/// Creates an instance of the score overlay panel for multiplayer.
-		/// </summary>
-		/// <returns>Reference to ScoreDisplay script of new instance.</returns>
-		public HUDMultiplayerScore CreateScoreDisplay()
-		{
-			//This method is called from the GameManager during multiplayer setup.
-			GameObject scorePrefab = GameSettings.s_Instance.mode.hudScoreObject;
-
-			GameObject mpScore = (GameObject)Instantiate(scorePrefab);
-			mpScore.transform.SetParent(m_ScoreAnchor, false);
-
-			return mpScore.GetComponent<HUDMultiplayerScore>();
-		}
-
-
 	}
 }

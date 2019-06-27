@@ -79,7 +79,6 @@ namespace Tanks.UI
 			if (dataManager != null && TankRotator.s_InstanceExists)
 			{
 				TankRotator.s_Instance.LoadModelForTankIndex(dataManager.selectedTank);
-				//TankRotator.s_Instance.LoadDecorationForIndex(dataManager.selectedDecoration, dataManager.GetSelectedMaterialForDecoration(dataManager.selectedDecoration));
 			}
 		}
 
@@ -134,21 +133,5 @@ namespace Tanks.UI
 			DailyUnlockManager.s_Instance.SetDailyUnlock(tankData.id);
 			UpdateTankStats(m_CurrentIndex);
 		}
-
-		//public void RefreshColourSelector()
-		//{
-		//	// Turn on the colour selection if it's off
-		//	if (m_SkinColourSelection != null)
-		//	{
-		//		if (!m_SkinColourSelection.gameObject.activeSelf)
-		//		{
-		//			m_SkinColourSelection.gameObject.SetActive(true);
-		//		}
-		//		else
-		//		{
-		//			m_SkinColourSelection.RefreshAvailableColours();
-		//		}
-		//	}
-		//}
 	}
 }

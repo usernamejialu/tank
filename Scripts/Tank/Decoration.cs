@@ -50,7 +50,7 @@ namespace Tanks.Data
 					if (!string.IsNullOrEmpty(m_DeathLayer))
 					{
 						int layerId = LayerMask.NameToLayer(m_DeathLayer);
-						joint.gameObject.SetLayerRecursively(layerId);
+						//joint.gameObject.SetLayerRecursively(layerId);
 					}
 
 					Destroy(joint);
