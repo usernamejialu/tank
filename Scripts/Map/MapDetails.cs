@@ -1,85 +1,79 @@
 ﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.UI;
 using System;
-using Tanks.Data;
 
 namespace Tanks.Map
 {
-	/// <summary>
-	/// Serializable class acting as model for Maps - used in Multiplayer and is the base class of SinglePlayer maps
-	/// </summary>
-	[Serializable]
-	public class MapDetails
-	{
-		[SerializeField]
-		protected string m_Name;
+  [Serializable]
+  public class MapDetails
+  {
+    [SerializeField]
+    protected string m_Name;
 
-		public string name
-		{
-			get{ return m_Name; }
-		}
-		
-		//This is marked as a serialized field for debugging purposes only
-		[SerializeField]
-		protected bool m_IsLocked;
+    public string name
+    {
+      get { return m_Name; }
+    }
 
-		public bool isLocked
-		{
-			get { return m_IsLocked; }
-		}
+    [SerializeField]
+    protected bool m_IsLocked;
 
-		[SerializeField] [Multiline]
-		protected string m_Description;
+    public bool isLocked
+    {
+      get { return m_IsLocked; }
+    }
 
-		public string description
-		{
-			get { return m_Description; }
-		}
+    [SerializeField]
+    [Multiline]
+    protected string m_Description;
 
-		[SerializeField]
-		protected string m_SceneName, m_Id;
+    public string description
+    {
+      get { return m_Description; }
+    }
 
-		public string sceneName
-		{
-			get { return m_SceneName; }
-		}
+    [SerializeField]
+    protected string m_SceneName, m_Id;
 
-		public string id
-		{
-			get { return m_Id; }
-		}
+    public string sceneName
+    {
+      get { return m_SceneName; }
+    }
 
-		[SerializeField]
-		protected Sprite m_Image;
+    public string id
+    {
+      get { return m_Id; }
+    }
 
-		public Sprite image
-		{
-			get{ return m_Image; }
-		}
+    [SerializeField]
+    protected Sprite m_Image;
 
-		[SerializeField]
-		protected int m_UnlockCost;
+    public Sprite image
+    {
+      get { return m_Image; }
+    }
 
-		public int unlockCost
-		{
-			get{ return m_UnlockCost; }
-		}
+    [SerializeField]
+    protected int m_UnlockCost;
 
-		[SerializeField]
-		protected MapEffectsGroup m_EffectsGroup;
+    public int unlockCost
+    {
+      get { return m_UnlockCost; }
+    }
 
-		public MapEffectsGroup effectsGroup
-		{
-			get{ return m_EffectsGroup; }
-		}
+    [SerializeField]
+    protected MapEffectsGroup m_EffectsGroup;
 
-		[SerializeField]
-		protected AudioClip m_LevelMusic;
+    public MapEffectsGroup effectsGroup
+    {
+      get { return m_EffectsGroup; }
+    }
 
-		public AudioClip levelMusic
-		{
-			get{ return m_LevelMusic; }
-		}
-	}
+    [SerializeField]
+    protected AudioClip m_LevelMusic;
+
+    public AudioClip levelMusic
+    {
+      get { return m_LevelMusic; }
+    }
+  }
 }
