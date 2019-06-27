@@ -12,10 +12,6 @@ namespace Tanks.UI
 	/// </summary>
 	public class InGameOptionsMenu : Singleton<InGameOptionsMenu>
 	{
-		[Header("Settings menu")]
-		//Settings menu modal object to instantiate (should be the prefab of the same one that appears in the main menu).
-		[SerializeField]
-		protected GameObject m_SettingsMenuPrefab;
 
 		//Events to subscribe to for pause and resume.
 		public event Action paused, resumed;
@@ -29,8 +25,6 @@ namespace Tanks.UI
 		//Internal reference to current game settings.
 		protected GameSettings m_Settings;
 
-		//Internal reference to settings modal instance
-		private SettingsModal settingsModal;
 
 		protected override void Awake()
 		{
@@ -107,21 +101,7 @@ namespace Tanks.UI
 			}
 		}
 
-		/// <summary>
-		/// Displays the settings modal to tweak game options in-game.
-		/// </summary>
-		public void ShowSettingsMenu()
-		{
-			if (settingsModal == null)
-			{
-				//For consistency, we instantiate a copy of the main menu's settings prefab instead of having one ready-made in the scene.
-				settingsModal = ((GameObject)Instantiate(m_SettingsMenuPrefab)).GetComponent<SettingsModal>();
-				settingsModal.transform.SetParent(transform.parent, false);
-				settingsModal.transform.localScale = Vector3.one;
-			}
 
-			settingsModal.Show();
-		}
 
 		/// <summary>
 		/// Toggles input managers on and off.

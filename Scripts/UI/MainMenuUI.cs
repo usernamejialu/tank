@@ -33,14 +33,14 @@ namespace Tanks.UI
 		protected CanvasGroup m_SinglePlayerPanel;
 		[SerializeField]
 		protected CanvasGroup m_CustomizePanel;
-        [SerializeField]
-        protected LobbyInfoPanel m_InfoPanel;
+        //[SerializeField]
+        //protected LobbyInfoPanel m_InfoPanel;
         //[SerializeField]
         //protected TankCustomizationModal m_CustomiseModal;
         //[SerializeField]
         //protected LobbyPlayerList m_PlayerList;
-        [SerializeField]
-		protected SettingsModal m_SettingsModal;
+  //      [SerializeField]
+		//protected SettingsModal m_SettingsModal;
 		//[SerializeField]
 		//protected SharingModal m_SharingModal;
 
@@ -170,10 +170,10 @@ namespace Tanks.UI
 
 	
 
-		public void ShowSettingsModal()
-		{
-			m_SettingsModal.Show();
-		}
+		//public void ShowSettingsModal()
+		//{
+		//	m_SettingsModal.Show();
+		//}
 
 		public void ShowCustomizePanel()
 		{
@@ -193,48 +193,48 @@ namespace Tanks.UI
         /// </summary>
         /// <param name="label">Label.</param>
         /// <param name="callback">Callback.</param>
-        public void ShowInfoPopup(string label, UnityAction callback)
-        {
-            if (m_InfoPanel != null)
-            {
-                m_InfoPanel.Display(label, callback, true);
-            }
-        }
+        //public void ShowInfoPopup(string label, UnityAction callback)
+        //{
+        //    //if (m_InfoPanel != null)
+        //    //{
+        //    //    m_InfoPanel.Display(label, callback, true);
+        //    //}
+        //}
 
-        public void ShowInfoPopup(string label)
-        {
-            if (m_InfoPanel != null)
-            {
-                m_InfoPanel.Display(label, null, false);
-            }
-        }
+        //public void ShowInfoPopup(string label)
+        //{
+        //    //if (m_InfoPanel != null)
+        //    //{
+        //    //    m_InfoPanel.Display(label, null, false);
+        //    //}
+        //}
 
-        public void ShowConnectingModal(bool reconnectMatchmakingClient)
-        {
-            ShowInfoPopup("Connecting...", () =>
-                {
-                    if (NetworkManager.s_InstanceExists)
-                    {
-                        if (reconnectMatchmakingClient)
-                        {
-                            NetworkManager.s_Instance.Disconnect();
-                            NetworkManager.s_Instance.StartMatchingmakingClient();
-                        }
-                        else
-                        {
-                            NetworkManager.s_Instance.Disconnect();
-                        }
-                    }
-                });
-        }
+        //public void ShowConnectingModal(bool reconnectMatchmakingClient)
+        //{
+        //    ShowInfoPopup("Connecting...", () =>
+        //        {
+        //            if (NetworkManager.s_InstanceExists)
+        //            {
+        //                if (reconnectMatchmakingClient)
+        //                {
+        //                    NetworkManager.s_Instance.Disconnect();
+        //                    NetworkManager.s_Instance.StartMatchingmakingClient();
+        //                }
+        //                else
+        //                {
+        //                    NetworkManager.s_Instance.Disconnect();
+        //                }
+        //            }
+        //        });
+        //}
 
-        public void HideInfoPopup()
-        {
-            if (m_InfoPanel != null)
-            {
-                m_InfoPanel.gameObject.SetActive(false);
-            }
-        }
+        //public void HideInfoPopup()
+        //{
+        //    //if (m_InfoPanel != null)
+        //    //{
+        //    //    m_InfoPanel.gameObject.SetActive(false);
+        //    //}
+        //}
 
         /// <summary>
         /// Wait for network to disconnect before performing an action

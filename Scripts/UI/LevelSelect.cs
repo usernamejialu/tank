@@ -276,7 +276,7 @@ namespace Tanks.UI
 		//Assigned to lock button. Shows an explanatory popup.
 		public void OnLockClicked()
 		{
-			MainMenuUI.s_Instance.ShowInfoPopup("Earn more medals to unlock this level.", null);
+			//MainMenuUI.s_Instance.ShowInfoPopup("Earn more medals to unlock this level.", null);
 		}
 	}
 }
