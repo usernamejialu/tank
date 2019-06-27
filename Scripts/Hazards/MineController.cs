@@ -6,19 +6,15 @@ namespace Tanks.Hazards
 {
   public class MineController : LevelHazard, IDamageObject
   {
-    //Reference to the Scriptable Object defining mine explosion parameters
     [SerializeField]
     protected ExplosionSettings m_MineExplosionSettings;
 
-    //The minimum damage that the mine must suffer in one hit to be destroyed.
     [SerializeField]
     protected float m_DamageThreshold = 20f;
 
-    //Reference to the mine mesh.
     [SerializeField]
     protected GameObject m_MineMesh;
 
-    //Trigger timer countdown variables, including the maximum countdown time.
     [SerializeField]
     protected float m_TriggerCountdownDuration = 3f;
     private float m_TriggerTime = 0f;
@@ -38,9 +34,6 @@ namespace Tanks.Hazards
     [SerializeField]
     protected Collider m_TriggerCollider;
 
-    //We assume that mines are triggered and detonated by the ineptitude of the players themselves, so it counts as suicide for score purposes.
-    //However, players can also detonate mines by shooting at them.
-    //We track last hit player and detonating player seperately, so that proxy-triggering a mine doesn't count as a kill for the last player who shot at but didn't detonate it.
     private int m_LastHitBy = TankHealth.TANK_SUICIDE_INDEX;
     private int m_DetonatedByPlayer = TankHealth.TANK_SUICIDE_INDEX;
 
@@ -65,7 +58,6 @@ namespace Tanks.Hazards
       }
     }
 
-    //On the server, set the mine as triggered if anything in the "Players" layer enters the collider.
     private void OnTriggerEnter(Collider other)
     {
       //If the mine's already been triggered, ignore any new entrants
@@ -82,7 +74,6 @@ namespace Tanks.Hazards
       }
     }
 
-    //Perform server-side explosion logic. We don't actually destroy mine objects, we just disable them so that we can turn them back on between rounds if needed.
     private void ExplodeMine()
     {
       Debug.Log("<color=orange>Your mine asplode. Detonated by player " + m_DetonatedByPlayer + "</color>");
@@ -97,7 +88,7 @@ namespace Tanks.Hazards
       RpcExplodeMine();
     }
 
-    //Perform server-side reset logic. This is normally done between rounds of Last Man Standing games.
+    // Perform server-side reset logic.
     public override void ResetHazard()
     {
       m_Triggered = true;
@@ -110,7 +101,6 @@ namespace Tanks.Hazards
       RpcResetMine();
     }
 
-    //Perform server-side reactivation logic.
     public override void ActivateHazard()
     {
       m_TriggerCollider.enabled = true;
@@ -141,8 +131,6 @@ namespace Tanks.Hazards
       m_MineMesh.SetActive(true);
     }
 
-    #region IDamageObject Implementation
-
     public Vector3 GetPosition()
     {
       return transform.position;
@@ -168,7 +156,5 @@ namespace Tanks.Hazards
         m_LastHitBy = playerNumber;
       }
     }
-
-    #endregion
   }
 }
